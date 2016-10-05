@@ -16,7 +16,7 @@ form{margin-top:30px;position:relative;}
 #search-tips p{padding:16px 0 16px 10px;}
 #search-tips p:hover{background-color:#ccc;cursor:pointer;}
 input[type="text"]{width:526px;height:34px;float:left;padding-left:10px;}
-input[type="submit"]{width:100px;height:40px;font-size:14px;color:white;border-style:none;background:#3366ff;}
+input[type="submit"]{width:100px;height:40px;font-size:14px;color:white;border-style:none;background:#3366ff;cursor:pointer;}
 .left{float:left;width:25%}
 .middle{float:left;width:25%}
 .left img,.middle img{float:left;margin-top:270px;}
