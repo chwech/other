@@ -1,0 +1,32 @@
+body{margin:0;padding:0;}
+p{margin:0;}
+/*右上角导航栏*/
+li{list-style:none;float:left;margin-left:20px;font-size:13px;}
+ul{float:right;}
+li a{color:black;}
+a.blod{font-weight:600;}
+li a:hover{color:blue;}
+#pro{color:white;text-decoration:none;background:#3366ff;padding:5px;}
+
+/*中间主体部份*/
+.mainbody{clear:both;width:640px;margin:0 auto 50px;}
+img[src="img/bd_logo1.png"]{width:210px;height:70px;margin-left:230px;margin-top:60px}
+form{margin-top:30px;position:relative;}
+#search-tips{position:absolute;left:0px;top:40px;width:100%;height:250px;overflow:hidden;border: 1px solid #ccc;}
+#search-tips p{padding:16px 0 16px 10px;}
+#search-tips p:hover{background-color:#ccc;cursor:pointer;}
+input[type="text"]{width:526px;height:34px;float:left;padding-left:10px;}
+input[type="submit"]{width:100px;height:40px;font-size:14px;color:white;border-style:none;background:#3366ff;}
+.left{float:left;width:25%}
+.middle{float:left;width:25%}
+.left img,.middle img{float:left;margin-top:270px;}
+h5{margin-top:280px;margin-left:78px;margin-bottom:10px}
+.h{margin-top:5px;font-weight:100;color:#999;}
+
+
+
+
+.right{float:right;width:50%;font-size:12px;color:#999;margin-top:270px;}
+.right a{color:#999;}
+.a{margin-left:50px;}
+
