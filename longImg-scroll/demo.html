@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		html,
+		body{
+			margin: 0;
+			padding: 0;
+		}
+		#container-box{
+			width: 450px;
+			overflow: hidden;
+			border: 1px solid #ff0000;
+			/*绝对居中，ie8+*/
+			height: 300px;
+			margin: auto;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+		}
+		#container-box:after{
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 10px;
+			width: 40px;
+			height: 20px;
+			content: "长图";
+			background-color: blue;
+			color: #fff;
+			text-align: center;
+		}
+		#container-box>img{
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<div id="container-box">
+		<img src="long.jpg" id="long-img">
+	</div>
+	<script>
+		window.onload = function(){
+			var container_box = document.getElementById('container-box');
+			var long_img = document.getElementById('long-img');
+			long_img.style.top = 0 + "px";
+			var top = parseInt(long_img.style.top);
+			var target = long_img.offsetHeight - container_box.offsetHeight;
+			var timer = null;
+			var timer1 = null;
+			var flag;
+			long_img.onmouseover = function(){
+				//如果未到达终点
+				if(!flag){
+					clearInterval(timer);
+				
+					timer = setInterval(function(){
+						if(Math.abs(top) === target){
+							flag = true;
+							clearInterval(timer);
+						}
+						if(Math.abs(top) < target){
+							top--;
+						}		
+						long_img.style.top = top + "px";
+					}, 10);
+
+				}
+			  //如果到达终点
+				if(flag){
+					if(top != 0){
+						clearInterval(timer1);
+					}
+
+					timer1 = setInterval(function(){
+						if(top === 0){
+							flag = false;
+							clearInterval(timer1);
+						}
+						if(top < 0){
+							top++;
+						}
+						long_img.style.top = top + "px";
+					},10);
+
+				}
+			};
+
+			long_img.onmouseout = function(){
+				clearInterval(timer);
+				clearInterval(timer1);
+			};
+
+			long_img.onmousewheel = function(){
+				//模拟鼠标事件（滚轮事件）
+				var e = document.createEvent('MouseEvents');//ie9+
+				e.initMouseEvent('mouseover', true, true, document.defaultViews, 0, 0, 0, 0, 0, false, false, false, false, 0, long_img);
+				if(flag){
+					flag = false;
+					clearInterval(timer1);
+					//触发事件
+					long_img.dispatchEvent(e);
+				}else{
+					flag = true;
+					clearInterval(timer);
+					//触发事件
+					long_img.dispatchEvent(e);
+				}
+			};
+
+		};
+	</script>
+</body>
+</html>
